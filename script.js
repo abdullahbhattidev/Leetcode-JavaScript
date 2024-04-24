@@ -1,19 +1,19 @@
-//Problem 1. Write a function createHelloWorld. It should return a new function that always returns "Hello World".
+//Problem 2. Given an integer n, return a counter function. 
+// This counter function initially returns n and then returns 1 more than the previous value every subsequent time it is called (n, n + 1, n + 2, etc).
+
 /**
- * @return {Function}
+ * @param {number} n
+ * @return {Function} counter
  */
-var createHelloWorld = function() {
-    
-    return function(...args) {
-        return "Hello World"
-    }
+var createCounter = function(n) {
+    return function() {
+        return n++
+    };
 };
 
-const f = createHelloWorld();
- f(); 
- console.log(f())
- 
-/**
- * const f = createHelloWorld();
- * f(); // "Hello World"
+/** 
+ * const counter = createCounter(10)
+ * counter() // 10
+ * counter() // 11
+ * counter() // 12
  */
