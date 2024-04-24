@@ -1,1 +1,1 @@
-console.log("hello world!git pull origin main")
+console.log("hello world!")
