@@ -1,19 +1,27 @@
-//Problem 2. Given an integer n, return a counter function. 
-// This counter function initially returns n and then returns 1 more than the previous value every subsequent time it is called (n, n + 1, n + 2, etc).
+//Problem 3. Write a function expect that helps developers test their code. It should take in any value val and return an object with the following two functions.
 
+// toBe(val) accepts another value and returns true if the two values === each other. If they are not equal, it should throw an error "Not Equal".
+// notToBe(val) accepts another value and returns true if the two values !== each other. If they are equal, it should throw an error "Equal".
 /**
- * @param {number} n
- * @return {Function} counter
+ * @param {string} val
+ * @return {Object}
  */
-var createCounter = function(n) {
-    return function() {
-        return n++
-    };
+var expect = function(val) {
+    return{
+        toBe: (value)=>{
+            if(value===val)
+            return true
+            else throw new Error("Not Equal")
+        },
+        notToBe: (value)=>{
+            if(value!==val)
+            return true
+            else throw new Error("Equal")
+        }
+    }
 };
 
-/** 
- * const counter = createCounter(10)
- * counter() // 10
- * counter() // 11
- * counter() // 12
+/**
+ * expect(5).toBe(5); // true
+ * expect(5).notToBe(5); // throws "Equal"
  */
